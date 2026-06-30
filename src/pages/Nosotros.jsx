@@ -32,7 +32,7 @@ const Nosotros = () => {
       <section className="relative h-auto flex flex-col items-center justify-center bg-slate-600">
         <div className="absolute inset-0 bg-black/10 z-10" />
         <div className="container mx-auto px-4 relative z-20 text-center py-16">
-          <motion.h1 
+          <motion.h1
             initial="hidden"
             animate="visible"
             variants={titleVariants}
@@ -41,7 +41,7 @@ const Nosotros = () => {
           >
             Sobre Nosotros
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial="hidden"
             animate="visible"
             variants={descriptionVariants}
@@ -59,8 +59,8 @@ const Nosotros = () => {
               initial="hidden"
               animate="visible"
               variants={cardVariants}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ 
+              transition={{ duration: 0.2, delay: 0.4 }}
+              whileHover={{
                 scale: 1.05,
                 y: -10,
                 transition: { duration: 0.3 }
@@ -85,8 +85,8 @@ const Nosotros = () => {
               initial="hidden"
               animate="visible"
               variants={cardVariants}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              whileHover={{ 
+              transition={{ duration: 0.2, delay: 0.4 }}
+              whileHover={{
                 scale: 1.05,
                 y: -10,
                 transition: { duration: 0.3 }
