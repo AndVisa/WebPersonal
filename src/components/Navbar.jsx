@@ -35,15 +35,15 @@ const Navbar = () => {
                 <div className="absolute inset-0 bg-blue-500 rounded-lg transform -rotate-6 blur-sm opacity-20" />
                 <div className="absolute inset-0 bg-blue-600 rounded-lg transform rotate-3 blur-sm opacity-20" />
                 <div className="absolute inset-0 bg-blue-700 rounded-lg transform -rotate-3 blur-sm opacity-20" />
-                
+
                 {/* Sombra principal */}
                 <div className="absolute inset-0 bg-black rounded-lg transform translate-y-1 blur-sm opacity-10" />
-                
+
                 {/* Contenedor del logo con efecto de elevación */}
                 <div className="relative z-10 transform transition-all duration-300 hover:translate-y-[-2px]">
-                  <img 
-                    src="/Logo/LogoIWS.png" 
-                    alt="InnovateWeb Solutions Logo" 
+                  <img
+                    src="/Logo/LogoIWS.png"
+                    alt="InnovateWeb Solutions Logo"
                     className="h-12 w-auto rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] relative z-10"
                   />
                 </div>
