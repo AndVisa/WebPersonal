@@ -21,37 +21,37 @@ const AppRoutes = () => {
     <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/" element={<MainLayout><Home /></MainLayout>} />
-        <Route 
-          path="/nosotros" 
+        <Route
+          path="/nosotros"
           element={
-            <MainLayout backgroundClass="bg-slate-700" topBarClass="bg-slate-600">
+            <MainLayout topBarClass="bg-slate-700/80" withBackgroundBoxes={true}>
               <Nosotros />
             </MainLayout>
-          } 
+          }
         />
-        <Route 
-          path="/soluciones" 
+        <Route
+          path="/soluciones"
           element={
             <MainLayout backgroundClass="bg-slate-700" topBarClass="bg-slate-600">
               <Soluciones />
             </MainLayout>
-          } 
+          }
         />
-        <Route 
-          path="/blog" 
+        <Route
+          path="/blog"
           element={
             <MainLayout backgroundClass="bg-slate-700" topBarClass="bg-slate-600">
               <Blog />
             </MainLayout>
-          } 
+          }
         />
-        <Route 
-          path="/contacto" 
+        <Route
+          path="/contacto"
           element={
             <MainLayout backgroundClass="bg-slate-700" topBarClass="bg-slate-600">
               <Contacto />
             </MainLayout>
-          } 
+          }
         />
       </Routes>
     </Suspense>

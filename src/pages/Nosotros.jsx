@@ -29,15 +29,15 @@ const Nosotros = () => {
   return (
     <div>
       {/* Hero Section con Misión y Visión */}
-      <section className="relative h-auto flex flex-col items-center justify-center bg-slate-600">
-        <div className="absolute inset-0 bg-black/10 z-10" />
+      <section className="relative h-auto flex flex-col items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 bg-transparent z-10" />
         <div className="container mx-auto px-4 relative z-20 text-center py-16">
           <motion.h1
             initial="hidden"
             animate="visible"
             variants={titleVariants}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-bold text-white mb-6 pointer-events-auto"
           >
             Sobre Nosotros
           </motion.h1>
@@ -46,7 +46,7 @@ const Nosotros = () => {
             animate="visible"
             variants={descriptionVariants}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-white max-w-2xl mx-auto mb-16"
+            className="text-xl text-white max-w-2xl mx-auto mb-16 pointer-events-auto"
           >
             Conoce más sobre nuestra historia, misión y el equipo que hace posible
             transformar tus ideas en realidad digital.
@@ -65,7 +65,7 @@ const Nosotros = () => {
                 y: -10,
                 transition: { duration: 0.3 }
               }}
-              className="bg-slate-700 p-8 rounded-lg shadow-lg relative z-10 hover:z-20"
+              className="bg-slate-700/80 backdrop-blur-md p-8 rounded-lg shadow-lg relative z-10 hover:z-20 pointer-events-auto"
             >
               <div className="flex items-center justify-center mb-6">
                 <div className="bg-blue-300 p-3 rounded-full">
@@ -91,7 +91,7 @@ const Nosotros = () => {
                 y: -10,
                 transition: { duration: 0.3 }
               }}
-              className="bg-slate-700 p-8 rounded-lg shadow-lg relative z-10 hover:z-20"
+              className="bg-slate-700/80 backdrop-blur-md p-8 rounded-lg shadow-lg relative z-10 hover:z-20 pointer-events-auto"
             >
               <div className="flex items-center justify-center mb-6">
                 <div className="bg-blue-300 p-3 rounded-full">

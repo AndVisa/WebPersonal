@@ -27,7 +27,7 @@ const Historia = () => {
   };
 
   return (
-    <section className="py-16">
+    <section className="py-16 pointer-events-none">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
@@ -37,7 +37,7 @@ const Historia = () => {
         >
           <motion.h1 
             variants={paragraphVariants}
-            className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-6xl mx-auto text-center"
+            className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-6xl mx-auto text-center pointer-events-auto"
           >
             InnovateWeb Solutions: Tu Socio Tecnológico para el Crecimiento y la Innovación
           </motion.h1>
@@ -45,7 +45,7 @@ const Historia = () => {
           <div className="max-w-4xl mx-auto space-y-8">
             <motion.div
               variants={textVariants}
-              className="prose prose-lg prose-slate mx-auto"
+              className="prose prose-lg prose-slate mx-auto pointer-events-auto"
             >
               <motion.p 
                 variants={paragraphVariants}
@@ -64,7 +64,7 @@ const Historia = () => {
 
             <motion.div
               variants={textVariants}
-              className="bg-slate-600 p-8 rounded-lg"
+              className="bg-slate-600/80 backdrop-blur-md p-8 rounded-lg pointer-events-auto"
             >
               <motion.h2 
                 variants={paragraphVariants}
@@ -97,7 +97,7 @@ const Historia = () => {
               <motion.a
                 variants={paragraphVariants}
                 href="/contacto"
-                className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 text-lg font-semibold hover:scale-110"
+                className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-all duration-300 text-lg font-semibold hover:scale-110 pointer-events-auto"
               >
                 Solicita una Consulta Estratégica
               </motion.a>

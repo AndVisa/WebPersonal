@@ -67,14 +67,14 @@ const Fundadores = () => {
   };
 
   return (
-    <section className="py-16 bg-slate-700">
+    <section className="py-16 pointer-events-none">
       <div className="container mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
+          className="text-3xl md:text-4xl font-bold text-white text-center mb-12 pointer-events-auto"
         >
           Nuestros Fundadores
         </motion.h2>
@@ -91,7 +91,7 @@ const Fundadores = () => {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: CARD_CONFIG.animationDuration }}
-                  className={`bg-slate-600 p-8 rounded-lg shadow-lg ${
+                  className={`bg-slate-600/80 backdrop-blur-md p-8 rounded-lg shadow-lg pointer-events-auto ${
                     index === active ? 'relative z-10' : 'absolute'
                   }`}
                   style={{
@@ -124,7 +124,7 @@ const Fundadores = () => {
           <div className="flex justify-center gap-4 mt-16">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-full bg-slate-500 hover:bg-slate-400 transition-colors shadow-lg"
+              className="p-3 rounded-full bg-slate-500 hover:bg-slate-400 transition-colors shadow-lg pointer-events-auto"
               aria-label="Anterior fundador"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,7 +133,7 @@ const Fundadores = () => {
             </button>
             <button
               onClick={handleNext}
-              className="p-3 rounded-full bg-slate-500 hover:bg-slate-400 transition-colors shadow-lg"
+              className="p-3 rounded-full bg-slate-500 hover:bg-slate-400 transition-colors shadow-lg pointer-events-auto"
               aria-label="Siguiente fundador"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
