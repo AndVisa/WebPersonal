@@ -40,7 +40,7 @@ const AppRoutes = () => {
         <Route
           path="/blog"
           element={
-            <MainLayout backgroundClass="bg-slate-700" topBarClass="bg-slate-600">
+            <MainLayout topBarClass="bg-slate-700/80" withBackgroundBoxes={true}>
               <Blog />
             </MainLayout>
           }
