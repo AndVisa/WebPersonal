@@ -110,13 +110,13 @@ const Contacto = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-slate-600 via-slate-600 to-slate-400">
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="relative py-20 pointer-events-none">
+        <div className="container mx-auto px-4 relative z-10 pointer-events-none">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-16 pointer-events-auto"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Contáctanos
@@ -132,7 +132,7 @@ const Contacto = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-slate-700/80 backdrop-blur-sm p-8 rounded-lg shadow-lg"
+              className="bg-slate-700/80 backdrop-blur-sm p-8 rounded-lg shadow-lg pointer-events-auto"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <FormInput
@@ -184,7 +184,7 @@ const Contacto = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-8"
+              className="space-y-8 pointer-events-auto"
             >
               {/* Información de Contacto */}
               <div className="bg-slate-700/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
