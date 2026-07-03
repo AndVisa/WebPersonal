@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 const Historia = () => {
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 1.3,
-        staggerChildren: 0.5
+        staggerChildren: 0.1
       }
     }
   };
 
   const paragraphVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: {
         duration: 1,
@@ -35,7 +35,7 @@ const Historia = () => {
           viewport={{ once: true, amount: 0.1 }}
           variants={textVariants}
         >
-          <motion.h1 
+          <motion.h1
             variants={paragraphVariants}
             className="text-4xl md:text-5xl font-bold text-white mb-8 max-w-6xl mx-auto text-center pointer-events-auto"
           >
@@ -47,14 +47,14 @@ const Historia = () => {
               variants={textVariants}
               className="prose prose-lg prose-slate mx-auto pointer-events-auto"
             >
-              <motion.p 
+              <motion.p
                 variants={paragraphVariants}
                 className="text-slate-100 leading-relaxed"
               >
                 En InnovateWeb Solutions, vemos la tecnología no solo como una herramienta para resolver problemas actuales, sino como el motor fundamental para el crecimiento y la innovación tecnológica del mañana. Fundada a principios de 2025 por dos hermanos apasionados por el poder transformador del desarrollo de software y la automatización inteligente, nacimos con una visión clara: ser el socio tecnológico que impulsa a las empresas hacia el futuro.
               </motion.p>
 
-              <motion.p 
+              <motion.p
                 variants={paragraphVariants}
                 className="text-slate-100 leading-relaxed mt-6"
               >
@@ -66,7 +66,7 @@ const Historia = () => {
               variants={textVariants}
               className="bg-slate-600/80 backdrop-blur-md p-8 rounded-lg pointer-events-auto"
             >
-              <motion.h2 
+              <motion.h2
                 variants={paragraphVariants}
                 className="text-3xl font-bold text-white mb-6 text-center"
               >
@@ -74,14 +74,14 @@ const Historia = () => {
               </motion.h2>
 
               <div className="prose prose-lg prose-slate mx-auto">
-                <motion.p 
+                <motion.p
                   variants={paragraphVariants}
                   className="text-slate-100 leading-relaxed"
                 >
                   Nuestro objetivo trasciende la simple entrega de proyectos. Aspiramos a convertirnos en un referente tecnológico, y eso significa estar siempre a la vanguardia. Estamos comprometidos con el desarrollo web moderno, la creación de soluciones de software innovadoras y la implementación de automatización inteligente que no solo optimicen tus operaciones hoy, sino que te preparen para las oportunidades del futuro.
                 </motion.p>
 
-                <motion.p 
+                <motion.p
                   variants={paragraphVariants}
                   className="text-slate-100 leading-relaxed mt-6"
                 >
