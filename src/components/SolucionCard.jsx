@@ -26,7 +26,7 @@ const SolucionCard = ({ title, description, icon }) => {
     >
       <div className="relative preserve-3d transition-all duration-500 group-hover:rotate-y-180 h-80">
         {/* Front of card */}
-        <div className="absolute backface-hidden w-full h-full bg-slate-700 rounded-lg shadow-lg p-8 flex flex-col">
+        <div className="absolute backface-hidden w-full h-full bg-slate-700/80 backdrop-blur-md rounded-lg shadow-lg p-8 flex flex-col">
           <div className="flex items-center justify-center mb-8 text-4xl">
             {icon}
           </div>
@@ -35,7 +35,7 @@ const SolucionCard = ({ title, description, icon }) => {
         </div>
 
         {/* Back of card */}
-        <div className="absolute backface-hidden w-full h-full bg-slate-700 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center rotate-y-180">
+        <div className="absolute backface-hidden w-full h-full bg-slate-700/80 backdrop-blur-md rounded-lg shadow-lg p-8 flex flex-col items-center justify-center rotate-y-180">
           <h3 className="text-xl font-bold text-white mb-8 text-center">¿Listo para comenzar?</h3>
           <button
             onClick={handleWhatsAppClick}

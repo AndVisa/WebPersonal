@@ -50,14 +50,14 @@ const Soluciones = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-auto flex flex-col items-center justify-center bg-slate-600">
+      <section className="relative h-auto flex flex-col items-center justify-center pointer-events-none">
         <div className="absolute inset-0 bg-black/10 z-10" />
-        <div className="container mx-auto px-4 relative z-20 text-center py-16">
+        <div className="container mx-auto px-4 relative z-20 text-center py-16 pointer-events-none">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl font-bold text-white mb-6 pointer-events-auto"
           >
             Nuestras Soluciones
           </motion.h1>
@@ -65,7 +65,7 @@ const Soluciones = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-white max-w-2xl mx-auto mb-16"
+            className="text-xl text-white max-w-2xl mx-auto mb-16 pointer-events-auto"
           >
             Transformamos tus desafíos en oportunidades digitales con soluciones
             tecnológicas innovadoras y personalizadas.
@@ -83,6 +83,7 @@ const Soluciones = () => {
                 key={solucion.title}
                 variants={itemVariants}
                 custom={index}
+                className="pointer-events-auto"
               >
                 <SolucionItem {...solucion} />
               </motion.div>
