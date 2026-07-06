@@ -9,14 +9,14 @@ export const SOLUCIONES = [
     icon: "🌐"
   },
   {
-    title: "Aplicaciones Móviles",
-    description: "Desarrollamos aplicaciones móviles nativas e híbridas que ofrecen una experiencia de usuario excepcional y alto rendimiento.",
-    icon: "📱"
+    title: "Agentes y Automatización con IA",
+    description: "Implementamos agentes inteligentes y automatizamos procesos repetitivos mediante Inteligencia Artificial para multiplicar la eficiencia operativa de tu empresa.",
+    icon: "🤖"
   },
   {
-    title: "E-commerce",
-    description: "Implementamos soluciones de comercio electrónico completas que permiten a tu negocio vender en línea de manera segura y eficiente.",
-    icon: "🛒"
+    title: "Software a la Medida",
+    description: "Creamos y diseñamos soluciones de software altamente escalables y personalizadas que se adaptan exactamente a las necesidades y procesos únicos de tu negocio.",
+    icon: "💻"
   },
   {
     title: "Consultoría Tecnológica",

@@ -20,7 +20,7 @@ const TopBar = ({ className = '' }) => {
 
           {/* Redes sociales */}
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-white hover:text-blue-400 transition-colors">
+            <a href="https://www.facebook.com/profile.php?id=61570047867084" className="text-white hover:text-blue-400 transition-colors">
               <FaFacebook />
             </a>
             <a href="#" className="text-white hover:text-pink-400 transition-colors">

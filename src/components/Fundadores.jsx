@@ -20,13 +20,13 @@ const Fundadores = () => {
     {
       nombre: "André Villanueva Sánchez",
       cargo: "Co-Fundador & CEO",
-      descripcion: "Con 2 años de experiencia en desarrollo, André es nuestro especialista en crear interfaces de usuario intuitivas y atractivas. Su viaje en el desarrollo comenzó con el programa Oracle ONE y se fortalece día a día con Alura. Actualmente, expande sus horizontes con el CS50 de Harvard y un bootcamp de GitHub certificado por Microsoft, demostrando un compromiso constante con la innovación y las tecnologías de vanguardia en el front-end. ",
+      descripcion: "Con 3 años de experiencia en programación, André es nuestro especialista en crear interfaces de usuario intuitivas y atractivas. Su viaje en el desarrollo comenzó con el programa Oracle ONE y se fortalece día a día con Alura. Actualmente, expande sus horizontes con el CS50 de Harvard y un bootcamp de GitHub certificado por Microsoft, demostrando un compromiso constante con la innovación y las tecnologías de vanguardia en el front-end.",
       imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     },
     {
       nombre: "Alan Villanueva Sánchez",
       cargo: "Co-Fundador & CTO",
-      descripcion: "Con 2 años de experiencia en desarrollo, Alan es el motor detrás de la funcionalidad y robustez de nuestras aplicaciones. Formado inicialmente en Oracle ONE y en continua capacitación con Alura, Alan asegura que la lógica de negocio y las bases de datos operen con máxima eficiencia. Su dedicación se refleja en su actual participación en el CS50 de Harvard y el bootcamp de GitHub con certificación Microsoft, buscando siempre la excelencia técnica en el back-end.",
+      descripcion: "Con 3 años de experiencia en programación, Alan es el motor detrás de la funcionalidad y robustez de nuestras aplicaciones. Formado inicialmente en Oracle ONE y en continua capacitación con Alura, Alan asegura que la lógica de negocio y las bases de datos operen con máxima eficiencia. Su dedicación se refleja en su actual participación en el CS50 de Harvard y el bootcamp de GitHub con certificación Microsoft, buscando siempre la excelencia técnica en el back-end.",
       imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     }
   ];
@@ -69,7 +69,7 @@ const Fundadores = () => {
   return (
     <section className="py-16 pointer-events-none">
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -91,9 +91,8 @@ const Fundadores = () => {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: CARD_CONFIG.animationDuration }}
-                  className={`bg-slate-600/80 backdrop-blur-md p-8 rounded-lg shadow-lg pointer-events-auto ${
-                    index === active ? 'relative z-10' : 'absolute'
-                  }`}
+                  className={`bg-slate-600/80 backdrop-blur-md p-8 rounded-lg shadow-lg pointer-events-auto ${index === active ? 'relative z-10' : 'absolute'
+                    }`}
                   style={{
                     width: '100%',
                     maxWidth: CARD_CONFIG.maxWidth,

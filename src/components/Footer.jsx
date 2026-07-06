@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="md:justify-self-center">
             <h3 className="text-xl font-bold mb-4 text-center">Síguenos</h3>
             <div className="flex justify-center space-x-4">
-              <a href="#" className="text-2xl hover:text-blue-400 transition-colors cursor-pointer hover:scale-110">
+              <a href="https://www.facebook.com/profile.php?id=61570047867084" className="text-2xl hover:text-blue-400 transition-colors cursor-pointer hover:scale-110">
                 <FaFacebook />
               </a>
               <a href="#" className="text-2xl hover:text-pink-400 transition-colors cursor-pointer hover:scale-110">
