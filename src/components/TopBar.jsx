@@ -12,9 +12,9 @@ const TopBar = ({ className = '' }) => {
               <FaWhatsapp className="text-lg" />
               <span className="hidden sm:inline-block ml-2 text-sm">+123 456 789</span>
             </a>
-            <a href="mailto:contacto@innovateweb.com" className="flex items-center text-white hover:text-blue-400 transition-colors">
+            <a href="mailto:contacto@innovatews.com.mx" className="flex items-center text-white hover:text-blue-400 transition-colors">
               <FaEnvelope className="text-lg" />
-              <span className="hidden sm:inline-block ml-2 text-sm">contacto@innovateweb.com</span>
+              <span className="hidden sm:inline-block ml-2 text-sm">contacto@innovatews.com.mx</span>
             </a>
           </div>
 

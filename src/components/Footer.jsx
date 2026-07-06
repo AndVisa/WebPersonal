@@ -16,7 +16,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaEnvelope className="mr-3 text-blue-400" />
-                <span>contacto@innovateweb.com</span>
+                <span>contacto@innovatews.com.mx</span>
               </div>
               <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaMapMarkerAlt className="mr-3 text-red-400" />
