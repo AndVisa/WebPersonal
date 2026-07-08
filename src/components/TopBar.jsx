@@ -23,7 +23,7 @@ const TopBar = ({ className = '' }) => {
             <a href="https://www.facebook.com/profile.php?id=61570047867084" className="text-white hover:text-blue-400 transition-colors">
               <FaFacebook />
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors">
+            <a href="https://www.instagram.com/innovateweb_solutions/" className="text-white hover:text-pink-400 transition-colors">
               <FaInstagram />
             </a>
             <a href="#" className="text-white hover:text-blue-500 transition-colors">
