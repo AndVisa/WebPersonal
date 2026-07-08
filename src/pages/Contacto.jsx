@@ -65,7 +65,7 @@ const CONTACT_INFO = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    text: "Dirección de la empresa"
+    text: "Colonia Nápoles, Benito Juárez, CDMX."
   },
   {
     icon: (
@@ -208,7 +208,7 @@ const Contacto = () => {
                 </h2>
                 <div className="aspect-w-16 aspect-h-9">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6666185770436!2d-99.16958268452667!3d19.427021548293427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de04ff7!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses!2smx!4v1645555555555!5m2!1ses!2smx"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7526.86881801901!2d-99.18113175544717!3d19.39362774761508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff70fdea5055%3A0xf47485a18fe215a8!2sN%C3%A1poles%2C%2003810%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1783491253072!5m2!1ses!2smx"
                     width="100%"
                     height="300"
                     style={{ border: 0 }}

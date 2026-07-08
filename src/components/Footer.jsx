@@ -20,7 +20,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaMapMarkerAlt className="mr-3 text-red-400" />
-                <span>Ciudad, País</span>
+                <span>Ciudad de México, México</span>
               </div>
             </div>
           </div>
