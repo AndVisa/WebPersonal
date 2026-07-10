@@ -6,6 +6,7 @@ import mongoSanitize from 'express-mongo-sanitize';
 import hpp from 'hpp';
 import { notFound, errorHandler } from './middlewares/errorHandler.js';
 import logger from './config/logger.js';
+import contactRoutes from './modules/contact/contact.routes.js';
 
 const app = express();
 
@@ -60,7 +61,8 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Servidor funcionando correctamente' });
 });
 
-// TODO: Aquí se montarán las rutas de los módulos (ej. app.use('/api/contact', contactRoutes))
+// Rutas de Módulos
+app.use('/api/contact', contactRoutes);
 
 // Manejo de Errores
 app.use(notFound);

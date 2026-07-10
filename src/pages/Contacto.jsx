@@ -101,10 +101,28 @@ const Contacto = () => {
     }));
   }, []);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    // Aquí se implementará la lógica de envío del formulario
-    console.log('Formulario enviado:', formData);
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        alert('¡Mensaje enviado con éxito!'); // Aquí se puede cambiar por un Toast/SweetAlert
+        setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
+      } else {
+        alert(data.message || 'Error al enviar el mensaje');
+        console.error('Errores de validación:', data.errors);
+      }
+    } catch (error) {
+      console.error('Error de red:', error);
+      alert('Error al conectar con el servidor.');
+    }
   }, [formData]);
 
   return (
