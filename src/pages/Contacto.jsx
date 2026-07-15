@@ -92,6 +92,8 @@ const Contacto = () => {
     telefono: '',
     mensaje: ''
   });
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -103,6 +105,8 @@ const Contacto = () => {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
     try {
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       const response = await fetch(`${API_URL}/api/contact`, {
@@ -113,16 +117,20 @@ const Contacto = () => {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
-      if (response.ok) {
-        alert('¡Mensaje enviado con éxito!'); // Aquí se puede cambiar por un Toast/SweetAlert
+      
+      if (response.status === 429) {
+        setStatus({ type: 'error', message: 'Has enviado demasiados mensajes. Por favor, espera unos minutos y vuelve a intentarlo.' });
+      } else if (response.ok) {
+        setStatus({ type: 'success', message: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo muy pronto.' });
         setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
       } else {
-        alert(data.message || 'Error al enviar el mensaje');
-        console.error('Errores de validación:', data.errors);
+        setStatus({ type: 'error', message: data.message || 'Error al enviar el mensaje.' });
       }
     } catch (error) {
       console.error('Error de red:', error);
-      alert('Error al conectar con el servidor.');
+      setStatus({ type: 'error', message: 'Error de red: No se pudo conectar con el servidor.' });
+    } finally {
+      setIsSubmitting(false);
     }
   }, [formData]);
 
@@ -154,6 +162,11 @@ const Contacto = () => {
               className="bg-slate-700/80 backdrop-blur-sm p-8 rounded-lg shadow-lg pointer-events-auto"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
+                {status.message && (
+                  <div className={`p-4 rounded-md text-sm font-medium ${status.type === 'success' ? 'bg-green-500/20 text-green-200 border border-green-500/50' : 'bg-red-500/20 text-red-200 border border-red-500/50'}`}>
+                    {status.message}
+                  </div>
+                )}
                 <FormInput
                   label="Nombre Completo"
                   type="text"
@@ -191,9 +204,10 @@ const Contacto = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors duration-300 cursor-pointer"
+                  disabled={isSubmitting}
+                  className={`w-full py-3 px-6 rounded-md font-medium transition-colors duration-300 ${isSubmitting ? 'bg-blue-600/50 text-white/70 cursor-not-allowed' : 'bg-blue-600 text-white hover:bg-blue-700 cursor-pointer'}`}
                 >
-                  Enviar Mensaje
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
                 </button>
               </form>
             </motion.div>
