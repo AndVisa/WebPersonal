@@ -8,6 +8,7 @@ const Nosotros = lazy(() => import('../pages/Nosotros'));
 const Soluciones = lazy(() => import('../pages/Soluciones'));
 const Blog = lazy(() => import('../pages/Blog'));
 const Contacto = lazy(() => import('../pages/Contacto'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 // Componente de carga
 const Loading = () => (
@@ -53,6 +54,7 @@ const AppRoutes = () => {
             </MainLayout>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );
