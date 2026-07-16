@@ -1,9 +1,12 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config';
 
 import app from './app.js';
 import { connectDB } from './config/db.js';
 import logger from './config/logger.js';
+import { validateEnv } from './utils/validateEnv.js';
+
+// Validar entorno (Fail-fast)
+validateEnv();
 
 const PORT = process.env.PORT || 5000;
 
