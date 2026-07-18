@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="space-y-3 flex flex-col items-center md:items-start">
               <a href="https://wa.me/525571307725" target="_blank" rel="noopener noreferrer" className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaWhatsapp className="mr-3 text-green-400" />
-                <span>+525571307725</span>
+                <span>+52 55 7130 7725</span>
               </a>
               <a href="mailto:contacto@innovatews.com.mx" className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaEnvelope className="mr-3 text-blue-400" />

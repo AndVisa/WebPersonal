@@ -10,7 +10,7 @@ const TopBar = ({ className = '' }) => {
           <div className="flex items-center space-x-4">
             <a href="https://wa.me/525571307725" target="_blank" rel="noopener noreferrer" className="flex items-center text-white hover:text-blue-400 transition-colors">
               <FaWhatsapp className="text-lg" />
-              <span className="hidden sm:inline-block ml-2 text-sm">+525571307725</span>
+              <span className="hidden sm:inline-block ml-2 text-sm">+52 55 7130 7725</span>
             </a>
             <a href="mailto:contacto@innovatews.com.mx" className="flex items-center text-white hover:text-blue-400 transition-colors">
               <FaEnvelope className="text-lg" />
