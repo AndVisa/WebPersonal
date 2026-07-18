@@ -12,4 +12,31 @@
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+}
+
+/* Desktop (con Mouse): Aplica giro 3D y oculta botón frontal */
+@media (hover: hover) {
+  .hover-flip:hover .flip-wrapper {
+    transform: rotateY(180deg);
+  }
+  .mobile-cta {
+    display: none;
+  }
+}
+
+/* Móvil (Touch): Cancela giro, adapta altura y oculta la cara trasera */
+@media (hover: none) {
+  .flip-wrapper {
+    transform: none !important;
+  }
+  .mobile-card-height {
+    height: auto !important;
+    min-height: 22rem;
+  }
+  .front-face {
+    position: relative !important;
+  }
+  .back-face {
+    display: none !important;
+  }
 } 
