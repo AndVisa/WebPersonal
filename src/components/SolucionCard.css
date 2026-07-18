@@ -30,11 +30,12 @@
     transform: none !important;
   }
   .mobile-card-height {
-    height: auto !important;
+    height: 100% !important;
     min-height: 22rem;
   }
   .front-face {
     position: relative !important;
+    height: 100% !important;
   }
   .back-face {
     display: none !important;

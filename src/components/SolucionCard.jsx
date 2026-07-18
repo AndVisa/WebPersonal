@@ -22,7 +22,7 @@ const SolucionCard = ({ title, description, icon }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group hover-flip perspective-1000 w-full max-w-sm mx-auto"
+      className="group hover-flip perspective-1000 w-full max-w-sm mx-auto h-full"
     >
       <div className="relative preserve-3d transition-all duration-500 flip-wrapper h-80 mobile-card-height">
         {/* Front of card */}
