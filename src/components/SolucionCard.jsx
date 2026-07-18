@@ -12,7 +12,7 @@ import './SolucionCard.css';
 const SolucionCard = ({ title, description, icon }) => {
   const handleWhatsAppClick = () => {
     const message = `Hola, estoy interesado en ${title}. ¿Podrían proporcionarme más información?`;
-    const whatsappUrl = `https://wa.me/51999999999?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/525571307725?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

@@ -10,14 +10,14 @@ const Footer = () => {
           <div className="md:justify-self-center text-center md:text-left">
             <h3 className="text-xl font-bold mb-4">Contacto</h3>
             <div className="space-y-3 flex flex-col items-center md:items-start">
-              <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
+              <a href="https://wa.me/525571307725" target="_blank" rel="noopener noreferrer" className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaWhatsapp className="mr-3 text-green-400" />
-                <span>+123 456 789</span>
-              </div>
-              <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
+                <span>+525571307725</span>
+              </a>
+              <a href="mailto:contacto@innovatews.com.mx" className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaEnvelope className="mr-3 text-blue-400" />
                 <span>contacto@innovatews.com.mx</span>
-              </div>
+              </a>
               <div className="flex items-center cursor-pointer hover:scale-105 transition-transform">
                 <FaMapMarkerAlt className="mr-3 text-red-400" />
                 <span>Ciudad de México, México</span>
