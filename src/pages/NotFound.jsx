@@ -44,7 +44,14 @@ const NotFound = () => {
             }
         };
 
-        const interval = setInterval(draw, 33);
+        let animationFrameId;
+
+        const renderFrame = () => {
+            draw();
+            animationFrameId = requestAnimationFrame(renderFrame);
+        };
+
+        renderFrame();
 
         const handleResize = () => {
             width = canvas.width = window.innerWidth;
@@ -59,7 +66,7 @@ const NotFound = () => {
         window.addEventListener('resize', handleResize);
 
         return () => {
-            clearInterval(interval);
+            cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', handleResize);
         };
     }, []);

@@ -1,26 +1,133 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import { cn } from "../../lib/utils";
 
-export const BoxesCore = ({ className, ...rest }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
-  // Using hardcoded Hex colors to ensure they render regardless of Tailwind setup
-  let colors = [
-    "#7dd3fc", // sky-300
-    "#f9a8d4", // pink-300
-    "#86efac", // green-300
-    "#fde047", // yellow-300
-    "#fca5a5", // red-300
-    "#d8b4fe", // purple-300
-    "#93c5fd", // blue-300
-    "#a5b4fc", // indigo-300
-    "#c4b5fd", // violet-300
-  ];
-  
-  const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
+export const BoxesCore = React.memo(({ className, ...rest }) => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d", { alpha: true });
+
+    // FIX: Prevenir que React Strict Mode acumule la escala en el contexto al reiniciar el ciclo de vida
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    // La misma geometría desbordante exacta del código original Aceternity UI:
+    // 150 columnas horizontales, 100 filas verticales
+    const cols = 150;
+    const rows = 100;
+    const cellWidth = 64;
+    const cellHeight = 32;
+    const logicalWidth = cols * cellWidth;   // 9600px
+    const logicalHeight = rows * cellHeight; // 3200px
+
+    // Escalado 0.4x para que el tamaño interno (3840x1280) sea seguro para móviles (límite 4096px).
+    const scaleFactor = 0.4;
+    ctx.scale(scaleFactor, scaleFactor);
+
+    let colors = [
+      "#7dd3fc", "#f9a8d4", "#86efac", "#fde047", 
+      "#fca5a5", "#d8b4fe", "#93c5fd", "#a5b4fc", "#c4b5fd",
+    ];
+
+    // Offscreen canvas a la misma resolución interna escalada
+    const offscreen = document.createElement("canvas");
+    offscreen.width = logicalWidth * scaleFactor;
+    offscreen.height = logicalHeight * scaleFactor;
+    const octx = offscreen.getContext("2d", { alpha: true });
+    octx.scale(scaleFactor, scaleFactor);
+
+    // Compensar el anti-aliasing del escalado subiendo la opacidad y el grosor
+    octx.strokeStyle = "rgba(100, 116, 139, 0.6)";
+    octx.lineWidth = 1.25;
+    octx.beginPath();
+    for (let i = 0; i <= rows; i++) {
+      octx.moveTo(0, i * cellHeight);
+      octx.lineTo(logicalWidth, i * cellHeight);
+    }
+    for (let j = 0; j <= cols; j++) {
+      octx.moveTo(j * cellWidth, 0);
+      octx.lineTo(j * cellWidth, logicalHeight);
+    }
+    octx.stroke();
+
+    octx.strokeStyle = "rgba(51, 65, 85, 1.0)";
+    octx.lineWidth = 2;
+    octx.beginPath();
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        if (j % 2 === 0 && i % 2 === 0) {
+          const cx = j * cellWidth;
+          const cy = i * cellHeight;
+          const size = 6;
+          octx.moveTo(cx - size, cy);
+          octx.lineTo(cx + size, cy);
+          octx.moveTo(cx, cy - size);
+          octx.lineTo(cx, cy + size);
+        }
+      }
+    }
+    octx.stroke();
+
+    const activeCells = new Map();
+    let animationFrameId;
+
+    const draw = () => {
+      // Limpiamos con las coordenadas lógicas completas
+      ctx.clearRect(0, 0, logicalWidth, logicalHeight);
+
+      for (const [key, cell] of activeCells.entries()) {
+        const [col, row] = key.split(',').map(Number);
+        
+        ctx.fillStyle = cell.color;
+        ctx.globalAlpha = cell.alpha;
+        ctx.fillRect(col * cellWidth, row * cellHeight, cellWidth, cellHeight);
+        
+        cell.alpha -= 0.04; 
+        if (cell.alpha <= 0) {
+          activeCells.delete(key);
+        }
+      }
+
+      ctx.globalAlpha = 1.0;
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0); 
+      ctx.drawImage(offscreen, 0, 0);
+      ctx.restore();
+
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    const handleMouseMove = (e) => {
+      // e.offsetX y e.offsetY corresponden al tamaño físico que dictamina CSS (9600x3200)
+      const x = e.offsetX;
+      const y = e.offsetY;
+      
+      const col = Math.floor(x / cellWidth);
+      const row = Math.floor(y / cellHeight);
+
+      if (col >= 0 && col < cols && row >= 0 && row < rows) {
+        const key = `${col},${row}`;
+        if (!activeCells.has(key)) {
+          activeCells.set(key, {
+            color: colors[Math.floor(Math.random() * colors.length)],
+            alpha: 1.0
+          });
+        } else {
+            activeCells.get(key).alpha = 1.0;
+        }
+      }
+    };
+
+    canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <div
@@ -33,45 +140,24 @@ export const BoxesCore = ({ className, ...rest }) => {
       )}
       {...rest}
     >
-      {rows.map((_, i) => (
-        <motion.div
-          key={`row` + i}
-          className="w-16 h-8 border-l border-slate-500 relative"
-        >
-          {cols.map((_, j) => (
-            <motion.div
-              whileHover={{
-                backgroundColor: `var(${getRandomColor()})`,
-                transition: { duration: 0 },
-              }}
-              animate={{
-                transition: { duration: 2 },
-              }}
-              key={`col` + j}
-              className="w-16 h-8 border-r border-t border-slate-500 relative"
-            >
-              {j % 2 === 0 && i % 2 === 0 ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-700 stroke-[1px] pointer-events-none"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              ) : null}
-            </motion.div>
-          ))}
-        </motion.div>
-      ))}
+      <canvas
+        ref={canvasRef}
+        // Resolución Interna muy segura para móviles (3840x1280)
+        width={3840}
+        height={1280}
+        style={{
+          // Desbordamiento Geométrico Original (9600x3200)
+          width: '9600px',
+          height: '3200px',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          cursor: 'default'
+        }}
+        className="pointer-events-auto"
+      />
     </div>
   );
-};
+});
 
-export const BackgroundBoxes = React.memo(BoxesCore);
+export const BackgroundBoxes = BoxesCore;
