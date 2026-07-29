@@ -20,14 +20,16 @@ const Fundadores = () => {
     {
       nombre: "André Villanueva Sánchez",
       cargo: "Co-Fundador & CEO",
-      descripcion: "Con 3 años de experiencia en programación, André es nuestro especialista en crear interfaces de usuario intuitivas y atractivas. Su viaje en el desarrollo comenzó con el programa Oracle ONE y se fortalece día a día con Alura. Actualmente, expande sus horizontes con el CS50 de Harvard y un bootcamp de GitHub certificado por Microsoft, demostrando un compromiso constante con la innovación y las tecnologías de vanguardia en el front-end.",
-      imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+      descripcion: "Con 3 años de experiencia en programación y 2 años en Data Science, André es nuestro especialista en crear interfaces de usuario intuitivas y atractivas. Su viaje en el desarrollo comenzó con el programa Oracle ONE y se fortalece día a día, integrando hoy en día automatizaciones de procesos e inteligencia artificial para potenciar negocios, demostrando un compromiso constante con la innovación y las tecnologías de vanguardia.",
+      imagen: "/FounderAndre.jpeg",
+      imagePosition: "object-top"
     },
     {
       nombre: "Alan Villanueva Sánchez",
       cargo: "Co-Fundador & CTO",
-      descripcion: "Con 3 años de experiencia en programación, Alan es el motor detrás de la funcionalidad y robustez de nuestras aplicaciones. Formado inicialmente en Oracle ONE y en continua capacitación con Alura, Alan asegura que la lógica de negocio y las bases de datos operen con máxima eficiencia. Su dedicación se refleja en su actual participación en el CS50 de Harvard y el bootcamp de GitHub con certificación Microsoft, buscando siempre la excelencia técnica en el back-end.",
-      imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+      descripcion: "Con 3 años de experiencia en programación y 1 año en creación de sistemas, Alan es el motor detrás de la funcionalidad y robustez de nuestras aplicaciones. Formado inicialmente en el programa Oracle ONE, se encarga de estructurar la lógica de negocio y las bases de datos con máxima eficiencia, integrando arquitecturas con Inteligencia Artificial y flujos automatizados para maximizar el rendimiento técnico en cada proyecto.",
+      imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      imagePosition: "object-center"
     }
   ];
 
@@ -106,7 +108,7 @@ const Fundadores = () => {
                       <motion.img
                         src={fundador.imagen}
                         alt={fundador.nombre}
-                        className="w-full h-full rounded-full object-cover"
+                        className={`w-full h-full rounded-full object-cover ${fundador.imagePosition || 'object-center'}`}
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       />
