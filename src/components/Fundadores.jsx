@@ -28,8 +28,9 @@ const Fundadores = () => {
       nombre: "Alan Villanueva Sánchez",
       cargo: "Co-Fundador & CTO",
       descripcion: "Con 3 años de experiencia en programación y 1 año en creación de sistemas, Alan es el motor detrás de la funcionalidad y robustez de nuestras aplicaciones. Formado inicialmente en el programa Oracle ONE, se encarga de estructurar la lógica de negocio y las bases de datos con máxima eficiencia, integrando arquitecturas con Inteligencia Artificial y flujos automatizados para maximizar el rendimiento técnico en cada proyecto.",
-      imagen: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      imagePosition: "object-center"
+      imagen: "/FounderAlan.jpeg",
+      imagePosition: "object-top",
+      imageScale: "scale-110 origin-top"
     }
   ];
 
@@ -108,7 +109,7 @@ const Fundadores = () => {
                       <motion.img
                         src={fundador.imagen}
                         alt={fundador.nombre}
-                        className={`w-full h-full rounded-full object-cover ${fundador.imagePosition || 'object-center'}`}
+                        className={`w-full h-full rounded-full object-cover ${fundador.imagePosition || 'object-center'} ${fundador.imageScale || ''}`}
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                       />
