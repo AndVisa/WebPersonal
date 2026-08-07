@@ -22,7 +22,7 @@ const HeroContent = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
         >
-          Desarrollo web y software personalizado para impulsar tu negocio hacia el futuro.
+          Creacion de software y desarrollo web personalizado para impulsar tu negocio hacia el futuro.
         </motion.p>
 
         <motion.div
